@@ -2,6 +2,9 @@
 #include "lib/print.h"
 #include "lib/ls.h"
 #include "lib/show.h"
+#include "lib/enter.h"
+#include "lib/initfile.h"
+#include "lib/format.h"
 
 
 int main(int argc, char* argv[])
@@ -14,7 +17,7 @@ int main(int argc, char* argv[])
     char name[10];
     
     char *contect;
-    contect = (char *)malloc(MAX_WRITE)*sizeof(char));
+    contect = (char *)malloc(MAX_WRITE*sizeof(char));
     
     int i, flag, r_size;
     
@@ -33,10 +36,19 @@ int main(int argc, char* argv[])
     print();
     show();
     
-    strcpy(code[0]."ls");
+    strcpy(code[0],"ls");
     
     while(1){
         scanf("%s", a);
-        for(i = 0; i < 11; i++
+        for(i = 0; i < 5; i++){
+            if(!strcmp(code[i], a)) break;
+        }
+        
+        switch(i){
+            case 0:
+                ls();
+                show();
+                break;
+        }
     }
 }

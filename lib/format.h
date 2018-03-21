@@ -1,5 +1,3 @@
-#include "core/fs_core.h"
-
 void format()
 {
     int i;

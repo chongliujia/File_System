@@ -1,3 +1,7 @@
+#define DIR_LENGHT 1024
+
+
+
 void enter()
 {
     FILE *fp;
@@ -15,7 +19,7 @@ void enter()
         exit(0);
     }
 
-    fat  = (struct fatitem *)(fdisk + DISKSIZE);
+    fat  = (struct fatable *)(fdisk + DISKSIZE);
     root = (struct direct *)(fdisk + DISKSIZE + FATSIZE);
     fclose(fp);
 
