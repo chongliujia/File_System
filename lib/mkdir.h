@@ -32,10 +32,36 @@ int mkdir(char *name)
     cur_dir->directitem[i].next      = j;
     cur_dir->directitem[i].property  = '1';
 
-    cur_mkdir = (struct direct *)(fdisk + 
-            cur_dir->directitem[i].firstDisk * DISKSIZE);
+    cur_mkdir = (struct direct *)(fdisk + cur_dir->directitem[i].firstDisk * DISKSIZE);
 
-    cur_dir->directitem[0].sign = 0;
+    cur_dir->directitem[0].sign      = 0;
     cur_dir->directitem[0].firstDisk = cur_dir->directitem[i].firstDisk;
 
+    strcpy(cur_mkdir->directitem[0].name, ".");
+
+    cur_mkdir->directitem[0].next      = cur_mkdir->directitem[0].firstDisk;
+    cur_mkdir->directitem[0].property  = '1';
+    cur_mkdir->directitem[0].size      = ROOT_DISK_SIZE;
+
+    cur_mkdir->directitem[1].sign      = cur_dir->directitem[0].sign;
+    cur_mkdir->directitem[1].firstDisk = cur_dir->directitem[0].firstDisk;
+    
+    strcpy(cur_mkdir->directitem[1].name, "..");
+
+    cur_mkdir->directitem[1].next      = cur_mkdir->directitem[1].firstDisk;
+    cur_mkdir->directitem[1].property  = '1';
+    cur_mkdir->directitem[1].size      = ROOT_DISK_SIZE;
+
+    for(i = 2; i < MSD+2; i++){
+        cur_mkdir->directitem[i].sign       = 0;
+        cur_mkdir->directitem[1].firstDisk  = -1;
+
+        strcpy(cur_mkdir->directitem[i].name, "");
+
+        cur_mkdir->directitem[i].next       = -1;
+        cur_mkdir->directitem[i].property   = '0';
+        cur_mkdir->directitem[i].size       = 0;
+    }
+
+    return 0;
 }

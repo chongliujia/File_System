@@ -71,9 +71,10 @@ void format();
 int create(char *name);
 int open(char *name);
 int close(char *name);
-int mkdir(int fd, char *buf, int len);
+int mkdir(char *name);
 int rmdir(char *name);
 int cd(char *name);
+int delete(char *name);
 
 void print();
 void show();
