@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     print();
     show();
     
-    strcpy(code[0],"ls");
+    strcpy(code[0], "ls");
     strcpy(code[1], "mkdir");
     strcpy(code[2], "rmdir");
     strcpy(code[3], "cd");
