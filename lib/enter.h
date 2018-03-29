@@ -33,5 +33,5 @@ void enter()
 
     cur_dir = root;
     bufferdir = (char *)malloc(DIR_LENGHT * sizeof(char));
-    strcpy(bufferdir, "root>>:)####");
+    strcpy(bufferdir, "####--****---#####:");
 }
