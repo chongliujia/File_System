@@ -8,4 +8,4 @@
      3. ./a.out
 
 效果如下：
-![image](http://github.com/jiachongliu/File_System/raw/master/images/File_System.jpg)
+![image](http://github.com/jiachongliu/File_System/raw/master/image/File_System.jpg)
