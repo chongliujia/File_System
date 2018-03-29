@@ -4,7 +4,8 @@
 使用流程：   
      1. git  clone https://github.com/jiachongliu/File_System.git   
      2. cd File_System && gcc main.c
+
      3. ./a.out
 
 效果如下：
-![image](http://github.com/jiachongliu/File_System/images/File_System.png)
+![File_System](http://github.com/jiachongliu/File_System/images/File_System.png)
