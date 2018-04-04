@@ -1,4 +1,4 @@
 void show()
 {
-    printf("%s>", bufferdir);
+    printf("%s", bufferdir);
 }

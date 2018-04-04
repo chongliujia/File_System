@@ -1,7 +1,3 @@
-#define DIR_LENGHT 1024
-
-
-
 void enter()
 {
     FILE *fp;
@@ -13,7 +9,7 @@ void enter()
         printf("Error:\nCannot open file\n");
         return ;
     }
-    
+
     if(!fread(fdisk, MEM_D_SIZE, 1, fp)){
         printf("Error:\nCannot read file\n");
         exit(0);
@@ -32,6 +28,6 @@ void enter()
     u_opentable.cur_size = 0;
 
     cur_dir = root;
-    bufferdir = (char *)malloc(DIR_LENGHT * sizeof(char));
-    strcpy(bufferdir, "####--****---#####:");
+    bufferdir = (char *)malloc(DIR_LENGTH * sizeof(char));
+    strcpy(bufferdir, "***root***:");
 }

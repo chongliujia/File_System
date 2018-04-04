@@ -1,7 +1,7 @@
 /*
  * created: 2018.3.19
  * author: J
-*/  
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 #define MAX_WRITE        1024*128
 #define MEM_D_SIZE       1024*1024
 #define DISKSIZE         1024
-#define MSD              5
+#define MSD              10
 #define DISK_NUM         MEM_D_SIZE/DISKSIZE
 #define FATSIZE          DISK_NUM*sizeof(struct fatable)
 #define MOFN             5
@@ -23,13 +23,13 @@
 
 struct fatable{
     int     item;
-    
+
     char    em_disk;
 };
 
 struct direct{
     struct FCB{
-        char   name[50];
+        char   name[10];
         char   property;
 
         int    size;
@@ -41,7 +41,7 @@ struct direct{
 
 struct opentable{
     struct opentableitem{
-        char    name[50];
+        char    name[10];
 
         int     firstDisk;
         int     size;
@@ -50,11 +50,11 @@ struct opentable{
     int cur_size;
 };
 
-struct fatable  *fat;
+struct fatable   *fat;
 struct direct    *root;
 struct direct    *cur_dir;
 
-struct opentable     u_opentable;
+struct opentable  u_opentable;
 
 
 int fd = -1;

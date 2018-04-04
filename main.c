@@ -1,4 +1,3 @@
-
 #include "lib/core/fs_core.h"
 #include "lib/print.h"
 #include "lib/ls.h"
@@ -11,6 +10,7 @@
 #include "lib/cd.h"
 #include "lib/create.h"
 #include "lib/delete.h"
+#include "lib/open.h"
 
 
 int main(int argc, char* argv[])
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
         scanf("%c", &ch);
         if(ch == 'y'){
             initfile();
-            printf("Successfully format! \n");
+            printf("SUCCESSFULLY FORMAT! \n");
         }
         else return -1;
     }
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
     
     while(1){
         scanf("%s", a);
-        for(i = 0; i < 5; i++){
+        for(i = 0; i < 10; i++){
             if(!strcmp(code[i], a)) break;
         }
         
