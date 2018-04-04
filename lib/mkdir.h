@@ -7,7 +7,7 @@ int mkdir(char *name)
     if(!strcmp(name, ".")) return (-6);
     if(!strcmp(name, "..")) return (-6);
     if(strlen(name) > 8) return (-1);
-    
+
     for(i = 2; i < MSD+2; i++){
         if(cur_dir->directitem[i].firstDisk == -1) break;
     }
@@ -45,7 +45,7 @@ int mkdir(char *name)
 
     cur_mkdir->directitem[1].sign      = cur_dir->directitem[0].sign;
     cur_mkdir->directitem[1].firstDisk = cur_dir->directitem[0].firstDisk;
-    
+
     strcpy(cur_mkdir->directitem[1].name, "..");
 
     cur_mkdir->directitem[1].next      = cur_mkdir->directitem[1].firstDisk;
@@ -54,7 +54,7 @@ int mkdir(char *name)
 
     for(i = 2; i < MSD+2; i++){
         cur_mkdir->directitem[i].sign       = 0;
-        cur_mkdir->directitem[1].firstDisk  = -1;
+        cur_mkdir->directitem[i].firstDisk  = -1;
 
         strcpy(cur_mkdir->directitem[i].name, "");
 
