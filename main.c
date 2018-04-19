@@ -11,6 +11,7 @@
 #include "lib/create.h"
 #include "lib/delete.h"
 #include "lib/open.h"
+#include "lib/write.h"
 
 
 int main(int argc, char* argv[])
@@ -48,6 +49,8 @@ int main(int argc, char* argv[])
     strcpy(code[3], "cd");
     strcpy(code[4], "create");
     strcpy(code[5], "delete");
+    strcpy(code[6], "open");
+    strcpy(code[7], "write");
     
     while(1){
         scanf("%s", a);
@@ -121,6 +124,30 @@ int main(int argc, char* argv[])
                 else if(flag == -3) printf("Error: \n The delete is not file! \n");
                 else printf("Successfully delete! \n");
                 
+                show();
+                break;
+
+            case 6:
+                scanf("%s", name);
+                flag = open(name);
+                if(fd == -1) printf("Error: The open file not exit!\n");
+                else if(fd == -2) printf("Error: The file have already opened! \n");
+                else if(fd == -3) printf("Error: The number of open file is too much! \n");
+                else if(fd == -4) printf("Error: It is a direct, can't open for read or write! \n");
+                else printf("opened!\n");
+                show();
+                break;
+
+            case 7:
+                if(fd == -1) printf("Error: The file is not opened!\n");
+                else{
+                    printf("Please input the file contect:");
+                    scanf("%s", contect);
+                    
+                    flag = write(fd, contect, strlen(contect));
+                    if(flag == 0) printf("writed!!1\n");
+                    else printf("Error!");
+                }
                 show();
                 break;
                 
